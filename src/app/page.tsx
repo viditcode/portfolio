@@ -1,15 +1,12 @@
-import Nav from "./components/Nav";
-import BootLog from "./components/BootLog";
-import CaseStudyCard from "./components/CaseStudyCard";
-import Skills from "./components/Skills";
-import { About, Contact, Footer } from "./components/AboutContact";
-import { caseStudies } from "./data/content";
+import BootLog from "@/components/BootLog";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import Skills from "@/components/Skills";
+import { About, Contact } from "@/components/AboutContact";
+import { caseStudies } from "@/data/content";
 
-function App() {
+export default function Home() {
   return (
-    <div id="top" className="min-h-screen bg-paper">
-      <Nav />
-
+    <>
       <section className="mx-auto max-w-4xl px-6 pt-16 pb-8 sm:pt-24">
         <BootLog />
       </section>
@@ -29,9 +26,6 @@ function App() {
       <Skills />
       <About />
       <Contact />
-      <Footer />
-    </div>
+    </>
   );
 }
-
-export default App;

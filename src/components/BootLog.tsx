@@ -1,5 +1,7 @@
+"use client";
+
 import { useEffect, useState } from "react";
-import { bootLines, profile } from "../data/content";
+import { bootLines, profile } from "@/data/content";
 
 export default function BootLog() {
   const [visibleCount, setVisibleCount] = useState(0);
