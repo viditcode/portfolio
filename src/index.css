@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-paper: #f7f6f2;
+  --color-paper-dim: #efede6;
+  --color-ink: #14181c;
+  --color-ink-soft: #4b535a;
+  --color-ink-faint: #868d93;
+  --color-signal: #1f6f5c;
+  --color-signal-dim: #e4efe9;
+  --color-amber: #a66a1e;
+  --color-amber-dim: #f4e9dc;
+  --color-line: #ddd8ce;
+  --color-console: #10151a;
+  --color-console-line: #232b31;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+  ::selection {
+    background-color: var(--color-signal);
+    color: var(--color-paper);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
