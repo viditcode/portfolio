@@ -34,7 +34,7 @@ test.describe("Homepage", () => {
     const menuButton = page.getByRole("button", { name: /open menu/i });
     await expect(menuButton).toBeVisible();
     await menuButton.click();
-    await expect(page.locator('a[href="/#skills"]').first()).toBeVisible();
+    await expect(page.locator('a[href="/#skills"]').last()).toBeVisible();
   });
 });
 
