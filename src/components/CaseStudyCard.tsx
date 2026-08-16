@@ -1,4 +1,4 @@
-import type { CaseStudy } from "../data/content";
+import type { CaseStudy } from "@/data/content";
 
 export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
   const isPass = cs.status === "PASS";
@@ -9,9 +9,7 @@ export default function CaseStudyCard({ cs }: { cs: CaseStudy }) {
         <h3 className="text-lg font-semibold text-ink">{cs.title}</h3>
         <span
           className={`shrink-0 rounded-full px-2.5 py-1 font-mono text-[0.7rem] font-semibold tracking-wide ${
-            isPass
-              ? "bg-signal-dim text-signal"
-              : "bg-amber-dim text-amber"
+            isPass ? "bg-signal-dim text-signal" : "bg-amber-dim text-amber"
           }`}
         >
           {isPass ? "✓ PASS" : "● RUNNING"}

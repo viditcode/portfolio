@@ -1,4 +1,5 @@
-import { profile } from "../data/content";
+import Link from "next/link";
+import { profile } from "@/data/content";
 
 export function About() {
   return (
@@ -7,14 +8,15 @@ export function About() {
         // about
       </p>
       <h2 className="text-2xl font-semibold text-ink mb-5">
-        Quality isn't a phase — it's the design constraint
+        Quality isn&apos;t a phase — it&apos;s the design constraint
       </h2>
       <p className="max-w-2xl text-ink-soft leading-relaxed">
-        I'm a QA engineer moving toward SDET work, building real automation
+        I&apos;m a QA engineer moving toward SDET work, building real automation
         against real systems rather than tutorials — booking flows, payment
         integrations, and the security issues that hide in business logic.
-        I like understanding *why* a pattern works before I use it, and I'd
-        rather ship one well-tested case study than five untested demos.
+        I like understanding *why* a pattern works before I use it, and
+        I&apos;d rather ship one well-tested case study than five untested
+        demos.
       </p>
     </section>
   );
@@ -25,10 +27,10 @@ export function Contact() {
     <section id="contact" className="mx-auto max-w-4xl px-6 py-20">
       <div className="rounded-xl border border-line bg-white/60 p-8 sm:p-12 text-center">
         <p className="font-mono text-xs tracking-widest text-ink-faint uppercase mb-3">
-         
+          // contact.spec.ts
         </p>
         <h2 className="text-2xl font-semibold text-ink mb-4">
-          Let's talk testing
+          Let&apos;s talk testing
         </h2>
         <p className="text-ink-soft mb-8 max-w-md mx-auto">
           Open to SDET and QA automation roles. The fastest way to reach me
@@ -50,9 +52,13 @@ export function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-mono text-xs text-ink-faint">
-          © {new Date().getFullYear()} {profile.name} · built &amp; tested with React + Playwright
+          © {new Date().getFullYear()} {profile.name} · built &amp; tested with
+          Next.js + Playwright
         </p>
         <div className="flex gap-5">
+          <Link href="/blog" className="text-sm text-ink-soft hover:text-signal">
+            Blog
+          </Link>
           <a href={profile.github} className="text-sm text-ink-soft hover:text-signal">
             GitHub
           </a>

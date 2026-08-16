@@ -7,10 +7,11 @@ export const profile = {
   tagline:
     "I break things on purpose — then build the automation that stops them breaking again.",
   location: "India",
-  email: "Vdiit7535@gmail.com",
+  email: "you@example.com",
   github: "https://github.com/viditcode",
-  linkedin: "https://www.linkedin.com/in/vidit-agarwal-code/",
+  linkedin: "https://linkedin.com/in/your-handle",
   resumeUrl: "/resume.pdf",
+  siteUrl: "https://example.com", // update once you have a real domain — used for SEO/OG tags
 };
 
 export type CaseStudy = {

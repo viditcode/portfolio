@@ -1,11 +1,15 @@
+"use client";
+
 import { useState } from "react";
-import { profile } from "../data/content";
+import Link from "next/link";
+import { profile } from "@/data/content";
 
 const links = [
-  { label: "Work", href: "#work" },
-  { label: "Skills", href: "#skills" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Skills", href: "/#skills" },
+  { label: "About", href: "/#about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -14,20 +18,27 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-sm font-semibold text-ink">
-          {profile.name.toLowerCase()}<span className="text-signal">.test</span>
-        </a>
+        <Link href="/" className="font-mono text-sm font-semibold text-ink">
+          {profile.name.toLowerCase()}
+          <span className="text-signal">.test</span>
+        </Link>
 
         <ul className="hidden sm:flex items-center gap-6">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="text-sm text-ink-soft hover:text-signal transition-colors">
+              <Link
+                href={l.href}
+                className="text-sm text-ink-soft hover:text-signal transition-colors"
+              >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
-            <a href={profile.resumeUrl} className="rounded-full border border-ink px-3.5 py-1.5 text-sm font-medium text-ink hover:bg-ink hover:text-paper transition-colors">
+            <a
+              href={profile.resumeUrl}
+              className="rounded-full border border-ink px-3.5 py-1.5 text-sm font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
+            >
               Resume
             </a>
           </li>
@@ -57,13 +68,21 @@ export default function Nav() {
           <ul className="flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} onClick={() => setOpen(false)} className="text-base text-ink-soft hover:text-signal transition-colors">
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="text-base text-ink-soft hover:text-signal transition-colors"
+                >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
             <li>
-              <a href={profile.resumeUrl} onClick={() => setOpen(false)} className="inline-block rounded-full border border-ink px-4 py-2 text-sm font-medium text-ink">
+              <a
+                href={profile.resumeUrl}
+                onClick={() => setOpen(false)}
+                className="inline-block rounded-full border border-ink px-4 py-2 text-sm font-medium text-ink"
+              >
                 Resume
               </a>
             </li>
