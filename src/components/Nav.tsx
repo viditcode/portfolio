@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { profile } from "@/data/content";
+import { profile } from "../data/content";
 
-const links = [
+const links: { label: string; href: string; target?: string }[] = [
   { label: "Work", href: "/#work" },
   { label: "Skills", href: "/#skills" },
   { label: "About", href: "/#about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Blog", href: "/blog", target: "_blank" },
   { label: "Contact", href: "/#contact" },
 ];
 
@@ -19,8 +19,7 @@ export default function Nav() {
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
         <Link href="/" className="font-mono text-sm font-semibold text-ink">
-          {profile.name.toLowerCase()}
-          <span className="text-signal">.test</span>
+          {profile.name.toLowerCase()}<span className="text-signal">.test</span>
         </Link>
 
         <ul className="hidden sm:flex items-center gap-6">
@@ -28,6 +27,8 @@ export default function Nav() {
             <li key={l.href}>
               <Link
                 href={l.href}
+                target={l.target}
+                rel={l.target === "_blank" ? "noopener noreferrer" : undefined}
                 className="text-sm text-ink-soft hover:text-signal transition-colors"
               >
                 {l.label}
@@ -37,6 +38,8 @@ export default function Nav() {
           <li>
             <a
               href={profile.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-ink px-3.5 py-1.5 text-sm font-medium text-ink hover:bg-ink hover:text-paper transition-colors"
             >
               Resume
@@ -70,6 +73,8 @@ export default function Nav() {
               <li key={l.href}>
                 <Link
                   href={l.href}
+                  target={l.target}
+                  rel={l.target === "_blank" ? "noopener noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   className="text-base text-ink-soft hover:text-signal transition-colors"
                 >
@@ -80,6 +85,8 @@ export default function Nav() {
             <li>
               <a
                 href={profile.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="inline-block rounded-full border border-ink px-4 py-2 text-sm font-medium text-ink"
               >
