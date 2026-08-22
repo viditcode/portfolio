@@ -1,0 +1,27 @@
+---
+title: "Getting Started with API Testing: A Practical First Week"
+description: "What to actually do in your first week of learning API testing, based on real practice."
+date: "2026-08-15"
+tags: ["API-testing", "Beginners"]
+---
+
+## Day 1-2: Manual exploration in Postman
+
+Before writing any automated test, understand the API by hand — chain
+requests, save environments, explore edge cases.
+
+## Day 3-4: Write your first automated checks
+
+```python
+import requests
+
+def test_get_user():
+    response = requests.get("https://api.example.com/users/1")
+    assert response.status_code == 200
+    assert response.json()["id"] == 1
+```
+
+## Day 5: Add negative test cases
+
+Don't just test the happy path — missing fields, wrong types, and invalid
+IDs are where most real bugs live.

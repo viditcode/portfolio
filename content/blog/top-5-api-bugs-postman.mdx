@@ -1,0 +1,49 @@
+---
+title: "Top 5 API Bugs I Catch With Postman Before Writing a Single Test"
+description: "The recurring API issues worth checking manually in Postman before you invest in automation."
+date: "2026-08-20"
+tags: ["API-testing", "Beginners"]
+
+---
+
+Before I automate anything, I spend time in Postman finding the bugs that
+automation would otherwise take longer to surface. Here are the five that
+show up most often.
+
+## 1. Inconsistent status codes on validation errors
+
+A lot of APIs return `200` even when the request body is invalid, pushing
+the real error into the response payload instead. This breaks the contract
+your automated assertions rely on.
+
+## 2. Pagination that silently drops the last page
+
+Test the last page explicitly — a common off-by-one bug returns an empty
+array instead of the final partial page.
+
+### Quick check in Postman
+
+```json
+{
+  "page": 999,
+  "limit": 10
+}
+```
+
+If this returns `200` with an empty array instead of `404` or a clear
+"no more results" signal, flag it early.
+
+## 3. Auth tokens that never expire
+
+| Check | Expected | Common bug |
+|-------|----------|------------|
+| Token TTL | Set expiry | Never expires |
+| Refresh flow | Issues new token | Reuses old one |
+| Logout | Invalidates token | Token still valid |
+
+## 4. Missing rate limiting on write endpoints
+
+## 5. Case-sensitive query parameters
+
+Small thing, but `?Status=active` silently failing while `?status=active`
+works is a real bug users will hit.
