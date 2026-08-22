@@ -3,9 +3,9 @@ import { skillGroups } from "@/data/content";
 export default function Skills() {
   return (
     <section id="skills" className="mx-auto max-w-4xl px-6 py-20">
-      <p className="font-mono text-xs tracking-widest text-ink-faint uppercase mb-3">
+      {/* <p className="font-mono text-xs tracking-widest text-ink-faint uppercase mb-3">
         // stack
-      </p>
+      </p> */}
       <h2 className="text-2xl font-semibold text-ink mb-8">Skills</h2>
 
       <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">

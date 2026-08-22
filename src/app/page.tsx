@@ -12,9 +12,9 @@ export default function Home() {
       </section>
 
       <section id="work" className="mx-auto max-w-4xl px-6 py-20">
-        <p className="font-mono text-xs tracking-widest text-ink-faint uppercase mb-3">
+        {/* <p className="font-mono text-xs tracking-widest text-ink-faint uppercase mb-3">
           // case studies
-        </p>
+        </p> */}
         <h2 className="text-2xl font-semibold text-ink mb-8">Work</h2>
         <div className="grid gap-5 sm:grid-cols-2">
           {caseStudies.map((cs) => (
