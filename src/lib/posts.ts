@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { Category } from "@/data/categories";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 
@@ -12,7 +13,7 @@ export type PostMeta = {
   title: string;
   description: string;
   date: string; // ISO date string, e.g. "2026-08-20"
-  tags: string[];
+  tags: Category[];
   readingTime: string;
 };
 
