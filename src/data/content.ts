@@ -11,7 +11,7 @@ export const profile = {
   github: "https://github.com/viditcode",
   linkedin: "https://www.linkedin.com/in/vidit-agarwal-code/",
   resumeUrl: "https://drive.google.com/file/d/1Z44dZJm7kv9PFS6lHHHycG6p84knzKO2/view?usp=sharing",
-  siteUrl: "https://viditqa.vercel.app/", // update once you have a real domain — used for SEO/OG tags
+  siteUrl: "https://viditcode.com/", // update once you have a real domain — used for SEO/OG tags
 };
 
 export type CaseStudy = {
