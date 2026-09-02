@@ -51,7 +51,7 @@ export function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-mono text-xs text-ink-faint">
-          © {new Date().getFullYear()} {profile.name} · built &amp; tested with
+          © {new Date().getFullYear()} {profile.name} · Built &amp; tested with
           Next.js + Playwright
         </p>
         <div className="flex gap-5">

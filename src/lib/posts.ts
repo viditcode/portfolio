@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { Category } from "@/data/categories";
 
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 

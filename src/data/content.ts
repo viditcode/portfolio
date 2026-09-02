@@ -5,13 +5,13 @@ export const profile = {
   name: "Vidit Agarwal",
   title: "SDET / QA Automation Engineer",
   tagline:
-    "I break things on purpose — then build the automation that stops them breaking again.",
+    "I test software, automate workflows, build developer tools and write about what I learn.",
   location: "India",
   email: "viditagarwal79@gmail.com",
   github: "https://github.com/viditcode",
   linkedin: "https://www.linkedin.com/in/vidit-agarwal-code/",
   resumeUrl: "https://drive.google.com/file/d/1Z44dZJm7kv9PFS6lHHHycG6p84knzKO2/view?usp=sharing",
-  siteUrl: "https://example.com", // update once you have a real domain — used for SEO/OG tags
+  siteUrl: "https://viditcode.com/", // update once you have a real domain — used for SEO/OG tags
 };
 
 export type CaseStudy = {
