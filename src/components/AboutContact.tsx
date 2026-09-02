@@ -49,39 +49,28 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto max-w-4xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="font-mono text-xs text-ink-faint">
-          © {new Date().getFullYear()} {profile.name} · Built &amp; tested with
-          Next.js + Playwright
-        </p>
-        <div className="flex gap-5">
-          <Link
-
-            href="/blog"
-            target="_blank"
-            className="text-sm text-ink-soft hover:text-signal"
-          >
-            Blog
-
-          </Link>
-          <a
-            href={profile.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-ink-soft hover:text-signal"
-          >
-            GitHub
-          </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-ink-soft hover:text-signal"
-          >
-            LinkedIn
-          </a>
+      <div className="mx-auto max-w-4xl px-6 py-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <p className="font-mono text-sm font-semibold text-ink">{profile.name.toLowerCase()}<span className="text-signal">.test</span></p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">Practical notes on software quality, development, and the tools behind better software.</p>
+          </div>
+          <FooterGroup title="Explore" links={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: "Tools", href: "/tools" }]} />
+          <FooterGroup title="Company" links={[{ label: "About", href: "/about" }, { label: "Contact", href: "/contact" }]} />
+          <FooterGroup title="Legal" links={[{ label: "Privacy Policy", href: "/privacy-policy" }, { label: "Terms & Conditions", href: "/terms" }, { label: "Disclaimer", href: "/disclaimer" }, { label: "Cookie Policy", href: "/cookie-policy" }, { label: "Sitemap", href: "/sitemap.xml" }]} />
+        </div>
+        <div className="mt-10 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="font-mono text-xs text-ink-faint">© {new Date().getFullYear()} {profile.name} · Built &amp; tested with Next.js + Playwright</p>
+          <div className="flex gap-5">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="text-sm text-ink-soft hover:text-signal">GitHub</a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="text-sm text-ink-soft hover:text-signal">LinkedIn</a>
+          </div>
         </div>
       </div>
     </footer>
   );
+}
+
+function FooterGroup({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+  return <section><h2 className="font-mono text-xs uppercase tracking-widest text-ink-faint">{title}</h2><ul className="mt-3 space-y-2"><>{links.map((link) => <li key={link.href}><Link href={link.href} className="text-sm text-ink-soft transition-colors hover:text-signal">{link.label}</Link></li>)}</></ul></section>;
 }
