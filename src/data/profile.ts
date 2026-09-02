@@ -2,11 +2,11 @@ export const profile = {
   name: "Vidit Agarwal",
   title: "SDET / QA Automation Engineer",
   tagline:
-    "I test software, automate workflows, build developer tools and write about what I learn.",
+    "I break things on purpose — then build the automation that stops them breaking again.",
   location: "India",
   email: "viditagarwal79@gmail.com",
   github: "https://github.com/viditcode",
-  linkedin: "https://www.linkedin.com/in/vidit-agarwal-code/",
+  linkedin: "https://linkedin.com/in/your-handle",
   resumeUrl: "https://drive.google.com/file/d/1Z44dZJm7kv9PFS6lHHHycG6p84knzKO2/view?usp=sharing",
-  siteUrl: "https://viditqa.vercel.app/", // update once you have a real domain
+  siteUrl: "https://example.com", // update once you have a real domain
 };
