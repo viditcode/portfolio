@@ -13,7 +13,7 @@ export type PostMeta = {
   title: string;
   description: string;
   date: string; // ISO date string, e.g. "2026-08-20"
-  tags: Category[];
+  tags: string[];
   readingTime: string;
 };
 
