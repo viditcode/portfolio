@@ -1,16 +1,38 @@
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 export default function NotFound() {
   return (
-    <section className="mx-auto flex min-h-[55vh] max-w-4xl flex-col justify-center px-6 py-16 sm:py-24">
-      <p className="font-mono text-sm text-signal">404</p>
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">Page Not Found</h1>
-      <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">The page you&apos;re looking for doesn&apos;t exist, may have moved, or its address may be incorrect.</p>
-      <nav aria-label="Helpful links" className="mt-8 flex flex-wrap gap-3">
-        <Link className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-signal" href="/">Home</Link>
-        <Link className="rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-signal hover:text-signal" href="/blog">Blog</Link>
-        <Link className="rounded-full border border-line px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-signal hover:text-signal" href="/contact">Contact</Link>
-      </nav>
-    </section>
-  );
+    <main className="min-h-screen flex items-center justify-center bg-white px-4">
+      <div className="w-full max-w-md text-center">
+        <Image
+          src="/images/404-illustration.svg"
+          alt=""
+          width={240}
+          height={240}
+          className="mx-auto mb-8"
+        />
+        <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+          This page took a wrong turn
+        </h1>
+        <p className="text-gray-500 mb-8">
+          The page you're looking for doesn't exist or may have moved.
+        </p>
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link
+            href="/"
+            className="rounded-lg bg-[#0F6E56] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#0c5a46] transition-colors"
+          >
+            Back to homepage
+          </Link>
+          <Link
+            href="/blog"
+            className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-700 hover:border-gray-400 transition-colors"
+          >
+            Browse the blog
+          </Link>
+        </div>
+      </div>
+    </main>
+  )
 }

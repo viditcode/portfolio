@@ -55,7 +55,7 @@ export function Footer() {
             <p className="font-mono text-sm font-semibold text-ink">{profile.name.toLowerCase()}<span className="text-signal">.test</span></p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">Practical notes on software quality, development, and the tools behind better software.</p>
           </div>
-          <FooterGroup title="Explore" links={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: "Tools", href: "/tools" }]} />
+          <FooterGroup title="Explore" links={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: "Tools", href: "/tools" }, { label: "Courses", href: "/courses" }, { label: "Services", href: "/services" }]} />
           <FooterGroup title="Company" links={[{ label: "About", href: "/about" }, { label: "Contact", href: "/contact" }]} />
           <FooterGroup title="Legal" links={[{ label: "Privacy Policy", href: "/privacy-policy" }, { label: "Terms & Conditions", href: "/terms" }, { label: "Disclaimer", href: "/disclaimer" }, { label: "Cookie Policy", href: "/cookie-policy" }, { label: "Sitemap", href: "/sitemap.xml" }]} />
         </div>
