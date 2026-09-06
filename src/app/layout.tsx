@@ -19,6 +19,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: `${profile.name} — ${profile.title}`,
     template: `%s — ${profile.name}`,
