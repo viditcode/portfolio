@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { profile } from "../data/content";
+import { socialLinks } from "../data/social-links";
 
 const links: { label: string; href: string; target?: string }[] = [
   { label: "Work", href: "/#work" },
@@ -14,6 +15,18 @@ const links: { label: string; href: string; target?: string }[] = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [connectOpen, setConnectOpen] = useState(false);
+  const connectRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (connectRef.current && !connectRef.current.contains(e.target as Node)) {
+        setConnectOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
@@ -35,6 +48,49 @@ export default function Nav() {
               </Link>
             </li>
           ))}
+
+          {/* Connect dropdown */}
+          <li className="relative" ref={connectRef}>
+            <button
+              type="button"
+              onClick={() => setConnectOpen((v) => !v)}
+              aria-expanded={connectOpen}
+              aria-haspopup="true"
+              className="flex items-center gap-1 text-sm text-ink-soft hover:text-signal transition-colors"
+            >
+              Connect
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className={`transition-transform ${connectOpen ? "rotate-180" : ""}`}
+              >
+                <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            {connectOpen && (
+              <div className="absolute right-0 mt-2 w-44 rounded-xl border border-line bg-paper shadow-lg py-2 z-50">
+                {socialLinks.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 px-4 py-2 text-sm text-ink-soft hover:text-signal transition-colors"
+                    onClick={() => setConnectOpen(false)}
+                  >
+                    <Icon size={15} />
+                    {label}
+                  </a>
+                ))}
+              </div>
+            )}
+          </li>
+
           <li>
             <a
               href={profile.resumeUrl}
@@ -82,6 +138,30 @@ export default function Nav() {
                 </Link>
               </li>
             ))}
+
+            {/* Connect section in mobile menu — flat list, no nested dropdown */}
+            <li>
+              <p className="font-mono text-xs uppercase tracking-widest text-ink-faint mb-2">
+                Connect
+              </p>
+              <ul className="flex flex-wrap gap-4">
+                {socialLinks.map(({ label, href, icon: Icon }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-2 text-sm text-ink-soft hover:text-signal transition-colors"
+                    >
+                      <Icon size={16} />
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
             <li>
               <a
                 href={profile.resumeUrl}
